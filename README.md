@@ -5,7 +5,7 @@ Android WebView extension that can display markdown files with css
 
 ```gradle
 dependencies {
-	implementation 'com.maxpilotto:markdown-view:1.0.0'
+	implementation 'com.maxpilotto:markdown-view:2.0.0'
 }
 ```
 
