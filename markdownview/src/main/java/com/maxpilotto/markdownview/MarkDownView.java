@@ -3,7 +3,6 @@ package com.maxpilotto.markdownview;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.webkit.WebView;
 
 import androidx.annotation.RawRes;
@@ -12,6 +11,12 @@ import com.maxpilotto.markdownview.util.HttpRequest;
 import com.maxpilotto.markdownview.util.JString;
 import com.maxpilotto.markdownview.util.Markdown;
 
+import org.commonmark.Extension;
+import org.commonmark.ext.front.matter.YamlFrontMatterExtension;
+import org.commonmark.ext.gfm.strikethrough.StrikethroughExtension;
+import org.commonmark.ext.gfm.tables.TablesExtension;
+import org.commonmark.ext.heading.anchor.HeadingAnchorExtension;
+import org.commonmark.ext.ins.InsExtension;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -21,6 +26,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -272,9 +279,20 @@ public class MarkDownView extends WebView {
      * @return HTML string
      */
     private String parse(String markdown) {
-        Parser parser = Parser.builder().build();
+        List<Extension> extensions = Arrays.asList(
+                TablesExtension.create(),
+                StrikethroughExtension.create(),
+                HeadingAnchorExtension.create(),
+                YamlFrontMatterExtension.create(),
+                InsExtension.create()
+        );
+        Parser parser = Parser.builder()
+                .extensions(extensions)
+                .build();
+        HtmlRenderer renderer = HtmlRenderer.builder()
+                .extensions(extensions)
+                .build();
         Node document = parser.parse(markdown);
-        HtmlRenderer renderer = HtmlRenderer.builder().build();
 
         return renderer.render(document);
     }
