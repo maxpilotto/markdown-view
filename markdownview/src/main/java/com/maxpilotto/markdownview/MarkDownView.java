@@ -118,27 +118,34 @@ public class MarkDownView extends WebView {
      * @param style    String containing the stylesheet, the tags are not needed
      */
     public void load(String markdown, String style) {
-        StringBuilder builder = new StringBuilder();
+        StringBuilder page = new StringBuilder();
+
+        page.append("<html>");
 
         if (style != null) {
+            page.append("<head>");
+
             if (!style.startsWith("<style>")) {
-                builder.append("<style>");
+                page.append("<style>");
             }
 
-            builder.append(style);
+            page.append(style);
 
             if (!style.endsWith("</style>")) {
-                builder.append("</style>");
+                page.append("</style>");
             }
+
+            page.append("</head>");
         }
 
-        builder.append(parse(markdown));
-
-        Log.d("HTML",builder.toString());
+        page.append("<body>");
+        page.append(parse(markdown));
+        page.append("<body>");
+        page.append("</html>");
 
         loadDataWithBaseURL(
                 null,
-                builder.toString(),
+                page.toString(),
                 "text/html",
                 "UTF-8",
                 null
