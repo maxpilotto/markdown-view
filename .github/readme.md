@@ -20,7 +20,7 @@ markDown.load(
 );
 ```
 <br>
-<img src="https://github.com/maxpilotto/markdown-view/blob/master/imgs/s1.png" alt="drawing" width="200"/>
+<img src="https://github.com/maxpilotto/markdown-view/blob/master/.github/imgs/s1.png" alt="drawing" width="200"/>
 <br>  
 
 ## Loading markdown 
