@@ -1,11 +1,18 @@
-# markdown-view
+# MarkDownView
 Android WebView extension that can display markdown files with css
 
 ## Getting started
-
+In your project's `build.gradle`
 ```gradle
+repositories {
+	maven { url "https://jitpack.io" }
+}
+```
+
+In your modules's `build.gradle`
+```gradle 
 dependencies {
-	implementation 'com.maxpilotto:markdownview:2.0.0'
+    implementation 'com.github.maxpilotto:markdown-view:2.0'
 }
 ```
 
