@@ -1,28 +1,5 @@
 apply plugin: 'com.android.library'
 
-ext {
-    bintrayRepo = 'markdownview'
-    bintrayName = 'markdownview'
-
-    publishedGroupId = 'com.maxpilotto'
-    libraryName = 'markdownview'
-    libraryDescription = 'Android WebView extension that can display markdown files with css'
-    artifact = 'markdownview'
-
-    siteUrl = 'https://github.com/maxpilotto/markdown-view'
-    gitUrl = 'https://github.com/maxpilotto/markdown-view.git'
-
-    libraryVersion = '2.0.0'
-
-    developerId = 'maxpilotto'
-    developerName = 'Max Pilotto'
-    developerEmail = 'maxpil99@outlook.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
@@ -57,6 +34,3 @@ dependencies {
     implementation files('libs/commonmark-ext-ins-0.12.1.jar')
     implementation files('libs/commonmark-ext-yaml-front-matter-0.12.1.jar')
 }
-
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
