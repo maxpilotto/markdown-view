@@ -12,7 +12,7 @@ repositories {
 In your modules's `build.gradle`
 ```gradle 
 dependencies {
-    implementation 'com.github.maxpilotto:markdown-view:2.1'
+    implementation 'com.github.maxpilotto:markdown-view:2.3'
 }
 ```
 
